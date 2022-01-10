@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<div th:replace="fragments :: head"></div>
+		<title>Le nostre pizze</title>
+	</head>
+	<body>
+			<div class="container justify-content-between">
+		
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th class ="text-secondary  fs-3 col-2"scope="col">Nome</th >
+					<th class ="text-secondary text-center fs-3 col-5"scope="col">Descrizione</th >
+					<th class ="text-secondary text-end fs-3 col-2"scope="col">prezzo</th >
+					
+					
+				</tr>
+				
+			</thead>
+			<tbody>
+				<tr th:each="pizza : ${pizze}">
+					<td class="bg-success text-white"th:text= ${pizza.name}></td>
+					<td  class=""th:text= ${pizza.descrizione}></td > 
+					<td class="bg-danger text-white" th:text= ${pizza.prezzo}></td >
+					
+					
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	
+	
+	
+	<div th:replace="fragments :: scripts"></div>
+	</body>
+
+</html>
