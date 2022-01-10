@@ -7,6 +7,7 @@
 </head>
 
 <body>
+	<nav th:replace="fragments :: navbar('creaPizza')"></nav>
 	<div class="container">
 		<form id="pizza-form" th:object="${pizza}" th:action="@{/pizze/nuova}" method="post">
 			<div class="row gy-2">
@@ -16,7 +17,7 @@
 				</div>
 				<div class="col-3">
 					<label class="form-label" for="publisher">Prezzo</label>
-					<input type="number" class="form-control" id="publisher" th:field="*{prezzo}">
+					<input type="number" class="form-control" id="publisher" step=".01" th:field="*{prezzo}">
 				</div>
 				<div class="col-12">
 					<label class="form-label" for="authors">Descrizione</label>

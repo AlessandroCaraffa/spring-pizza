@@ -5,15 +5,16 @@
 		<title>Le nostre pizze</title>
 	</head>
 	<body>
-			<div class="container justify-content-between">
+	<nav th:replace="fragments :: navbar('pizze')"></nav>
+			<div class="container justify-content-center">
 		
 		
 		<table class="table">
 			<thead>
 				<tr>
-					<th class ="text-secondary  fs-3 col-2"scope="col">Nome</th >
-					<th class ="text-secondary text-center fs-3 col-5"scope="col">Descrizione</th >
-					<th class ="text-secondary text-end fs-3 col-2"scope="col">prezzo</th >
+					<th class ="text-secondary  fs-3 col-3"scope="col">Nome</th >
+					<th class ="text-secondary text-center fs-3 col-8"scope="col">Descrizione</th >
+					<th class ="text-secondary text-end fs-3 col-1"scope="col">prezzo</th >
 					
 					
 				</tr>
@@ -29,10 +30,12 @@
 				</tr>
 			</tbody>
 		</table>
+		
+	
+		<div class="col-3 mx-auto text-center">
+			<a class="btn btn-primary " th:href =@{pizze/nuova}>Nuova pizza</a>
 		</div>
-	
-	
-	
+	</div>
 	<div th:replace="fragments :: scripts"></div>
 	</body>
 
