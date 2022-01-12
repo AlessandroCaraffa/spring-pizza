@@ -27,6 +27,7 @@ public class PizzaCreateController {
 	
 	@GetMapping
 	public String departments(Model model) {
+		model.addAttribute("edit", false);
 		model.addAttribute("pizza",new Pizza());
 		model.addAttribute("ingredientiList", ingredientiService.findAll());
 		return "createPizza";

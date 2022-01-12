@@ -10,7 +10,7 @@
 	<nav th:replace="fragments :: navbar('creaPizza')"></nav>
 	<div class="container">
 		
-		<form id="pizza-form" th:object="${pizza}" th:action="@{/pizze/nuova}" method="post">
+		<form id="pizza-form" th:object="${pizza}" th:action="${edit} ? @{/pizze/modifica/{id}(id=${pizza.id})} :  @{/pizze/nuova}" method="post">
 		<ul>
 		<li th:each="err : ${#fields.allErrors()}" th:text = "${err}" class="text-danger"></li   >
 		</ul>

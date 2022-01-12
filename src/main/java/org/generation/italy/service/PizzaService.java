@@ -25,5 +25,11 @@ public class PizzaService {
 	public Pizza getById (Integer id ) {
 		return pizzaRepository.getById(id);
 	}
+	public Pizza update(Pizza pizza) {
+		return pizzaRepository.save(pizza);
+	}
+	public void deleteById (Integer id) {
+		pizzaRepository.deleteById(id);
+	}
 
 }
