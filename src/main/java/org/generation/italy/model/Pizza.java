@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OrderBy;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+
 @Entity
 public class Pizza {
 	
@@ -18,12 +22,17 @@ public class Pizza {
 	
 	private Integer id;	
 	
+	@NotNull(message="Inserire un nome")
+	@NotEmpty(message="Inserire un nome")
 	private String name;
 	private String descrizione;
+	@NotNull(message="Inserire il prezzo")
+	@Positive(message="Il prezzo deve essere superiore a 0€")
 	private BigDecimal prezzo;
 	public Integer getId() {
 		return id;
 	}
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
