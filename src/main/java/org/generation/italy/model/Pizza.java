@@ -2,11 +2,13 @@ package org.generation.italy.model;
 
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OrderBy;
 
 import javax.validation.constraints.NotEmpty;
@@ -29,6 +31,19 @@ public class Pizza {
 	@NotNull(message="Inserire il prezzo")
 	@Positive(message="Il prezzo deve essere superiore a 0€")
 	private BigDecimal prezzo;
+	
+	@ManyToMany
+	private List<Ingredienti> ingredienti;
+	
+	
+	public List<Ingredienti> getIngredienti() {
+		return ingredienti;
+	}
+
+	public void setIngredienti(List<Ingredienti> ingredienti) {
+		this.ingredienti = ingredienti;
+	}
+
 	public Integer getId() {
 		return id;
 	}

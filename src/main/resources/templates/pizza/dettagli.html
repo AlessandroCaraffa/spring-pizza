@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<div th:replace="fragments :: head"></div>
+		<title th:text="${pizza.name}"></title >
+	</head>
+	<body>
+	<nav th:replace="fragments :: navbar('pizze')"></nav>
+	<h1 th:text="|Dettagli ${pizza.name}|" class="text-center"></h1 >
+			<div class="container justify-content-center" th:object="${pizza}">
+			<p th:text=" *{descrizione}" class="fs-3 text-center"></p >
+			
+			<h2>Ingredienti</h2>
+			<ul>
+				<li th:each="i : *{ingredienti}" th:text="${i.ingredientiNome}"></li >
+			</ul>
+			
+			
+			
+			
+			</div>
+		
+		
+
+	<div th:replace="fragments :: scripts"></div>
+	</body>
+
+</html>

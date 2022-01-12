@@ -3,6 +3,7 @@ package org.generation.italy.controller;
 import javax.validation.Valid;
 
 import org.generation.italy.model.Pizza;
+import org.generation.italy.service.IngredientiService;
 import org.generation.italy.service.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,9 +22,13 @@ public class PizzaCreateController {
 	@Autowired
 	private PizzaService pizzaService;
 	
+	@Autowired
+	private IngredientiService ingredientiService;
+	
 	@GetMapping
 	public String departments(Model model) {
 		model.addAttribute("pizza",new Pizza());
+		model.addAttribute("ingredientiList", ingredientiService.findAll());
 		return "createPizza";
 	}
 	

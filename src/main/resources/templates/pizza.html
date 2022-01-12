@@ -15,6 +15,7 @@
 					<th class ="text-secondary  fs-3 "scope="col">Nome</th >
 					<th class ="text-secondary text-center ms-2 fs-3"scope="col">Descrizione</th >
 					<th class ="text-secondary text-end fs-3"scope="col">prezzo</th >
+					<th></th>
 					
 					
 				</tr>
@@ -24,8 +25,10 @@
 				<tr th:each="pizza : ${pizze}">
 					<td class="bg-success text-white col-3"th:text= ${pizza.name}></td>
 					<td  class=" col-8"th:text= ${pizza.descrizione}></td > 
-					<td class="bg-danger text-white  col-1" th:text=" |${pizza.prezzo} &#8364; |"></td >
-					
+					<td class="bg-danger text-white  col-1" th:text=" | ${pizza.prezzo} &#8364; |"></td >
+					<td>
+						<a class="btn btn-primary" th:href="@{|/pizze/dettagli/ ${pizza.id}|}">Dettagli</a >
+					</td>
 					
 				</tr>
 			</tbody>
@@ -33,7 +36,7 @@
 		
 	
 		<div class="col-3 ms-auto text-end">
-			<a class="btn btn-primary " th:href =@{pizze/nuova}>Nuova pizza &euro</a>
+			<a class="btn btn-primary "  th:href =@{pizze/nuova}></i>Nuova pizza</a>
 		</div>
 	</div>
 	
