@@ -53,7 +53,7 @@ public class PizzaController {
 			model.addAttribute("ingredientiList", ingredientiService.findAll());
 			return "createPizza";
 		}
-		pizzaService.update(formPizza); 
+		pizzaService.save(formPizza); 
 		return "redirect:/pizze";
 	}
 	

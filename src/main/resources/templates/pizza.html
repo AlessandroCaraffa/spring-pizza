@@ -4,7 +4,13 @@
 	<div th:replace="fragments :: head"></div>
 		<title>Le nostre pizze</title>
 	</head>
+	
 	<body>
+	
+		<header>
+		<div class="container-fluid">
+		<img  src="resources/static/img/sfondoPizza.png"  th:src="@{img/sfondoPizza.png}">
+		</header>
 	<nav th:replace="fragments :: navbar('pizze')"></nav>
 			<div class="container justify-content-center">
 		
@@ -23,14 +29,16 @@
 			</thead>
 			<tbody>
 				<tr th:each="pizza : ${pizze}">
-					<td class="bg-success text-white col-3"th:text= ${pizza.name}></td>
-					<td  class=" col-8"th:text= ${pizza.descrizione}></td > 
-					<td class="bg-danger text-white  col-1" th:text=" | ${pizza.prezzo} &#8364; |"></td >
-					<td>
-						<a class="btn btn-primary mb-1" th:href="@{|/pizze/dettagli/ ${pizza.id}|}">Dettagli</a >
-						<a class="btn btn-primary mb-1" th:href="@{|/pizze/modifica/ ${pizza.id}|}">Modifica</a >
-						<a class="btn btn-primary"  onclick="return confirm('Sei sicuro di voler eliminare questa pizza?')"th:href="@{|/pizze/cancella/ ${pizza.id}|}">Elimina</a>
+					<td class="bg-success text-white ">
+						<a class="btn btn-primary " th:text= "${pizza.name}" th:href="@{|/pizze/dettagli/ ${pizza.id}|}">Dettagli</a >
 					</td>
+					<td  class=" "th:text= ${pizza.descrizione}></td > 
+					<td class="bg-danger text-white  " th:text=" | ${pizza.prezzo} &#8364; |"></td >
+					<td class="">
+						
+						<a class="btn btn-primary mb-1 mb-sm-0" th:href="@{|/pizze/modifica/ ${pizza.id}|}"><i class="fas fa-edit"></i></a >
+						<a class="btn btn-primary"  onclick="return confirm('Sei sicuro di voler eliminare questa pizza?')"th:href="@{|/pizze/cancella/ ${pizza.id}|}"><i class="far fa-trash-alt"></i></a>
+					</td >
 					
 				</tr>
 			</tbody>
@@ -38,7 +46,7 @@
 		
 	
 		<div class="col-3 ms-auto text-end">
-			<a class="btn btn-primary "  th:href =@{pizze/nuova}></i>Nuova pizza</a>
+			<a class="btn btn-primary "  th:href =@{pizze/nuova}><i class="fas fa-plus"></i>Nuova pizza</a>
 		</div>
 	</div>
 	
